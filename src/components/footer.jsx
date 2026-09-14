@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Brand */}
+        
         <div className="footer-brand">
           <a href="#home" className="footer-logo">
             <span className="footer-logo-box">DS</span>
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Product */}
+        
         <div className="footer-column">
           <h3>PRODUCT</h3>
 
@@ -35,7 +35,6 @@ const Footer = () => {
           <a href="#projects">Projects</a>
         </div>
 
-        {/* Company */}
         <div className="footer-column">
           <h3>COMPANY</h3>
 
@@ -44,7 +43,6 @@ const Footer = () => {
           <a href="#careers">Careers</a>
         </div>
 
-        {/* Legal */}
         <div className="footer-column">
           <h3>LEGAL</h3>
 
@@ -53,7 +51,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Footer */}
+
       <div className="footer-bottom">
         <p>© 2026 Dev Stack. All rights reserved.</p>
 
