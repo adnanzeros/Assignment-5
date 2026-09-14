@@ -1,6 +1,14 @@
 
 @plugin "daisyui";
-
+:root {
+:root {
+  --brand-gradient: linear-gradient(
+    95deg,
+    #ff542f,
+    #ef3f67,
+    #b526d4
+  );
+}
 * {
   margin: 0;
   padding: 0;
