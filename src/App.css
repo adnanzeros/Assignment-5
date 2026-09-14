@@ -1,14 +1,11 @@
-
 .navbar {
   width: 100%;
   height: 62px;
   background: #fff;
   border-bottom: 1px solid #edf0f5;
-
   position: sticky;
   top: 0;
   z-index: 1000;
-
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -18,20 +15,15 @@
   height: 100%;
   margin: 0 auto;
   padding: 0 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-
-
-
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 8px;
-
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -39,16 +31,12 @@
 .brand-logo {
   width: 24px;
   height: 24px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(135deg, #c83fd0, #d73586);
   color: #fff;
-
   border-radius: 6px;
-
   font-size: 18px;
   font-weight: 700;
 }
@@ -64,19 +52,13 @@
   color: #e91e83;
 }
 
-
-
-
 .nav-menu {
   display: flex;
   align-items: center;
-
   gap: 26px;
-
   list-style: none;
   margin: 0 35px;
   padding: 0;
-
   flex-shrink: 0;
 }
 
@@ -87,14 +69,10 @@
 
 .nav-menu a {
   color: #526078;
-
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 500;
-
   white-space: nowrap;
-
   transition: color 0.2s ease;
 }
 
@@ -103,28 +81,19 @@
   color: #e91e83;
 }
 
-
-
-
 .nav-auth {
   display: flex;
   align-items: center;
-
   gap: 17px;
-
   flex-shrink: 0;
 }
 
 .sign-in {
   color: #46536a;
-
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 500;
-
   white-space: nowrap;
-
   transition: color 0.2s ease;
 }
 
@@ -135,25 +104,17 @@
 .sign-up {
   height: 30px;
   min-width: 69px;
-
   padding: 0 15px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #e91e83;
   color: #fff;
-
   border-radius: 16px;
-
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 600;
-
   white-space: nowrap;
-
   transition: all 0.2s ease;
 }
 
@@ -162,21 +123,206 @@
   transform: translateY(-1px);
 }
 
-
 /* mobile */
+
+.mobile-nav {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
 
 @media (max-width: 700px) {
 
+  /* Hide desktop navbar */
   .nav-container {
-    padding: 0 16px;
-  }
-
-  .nav-menu {
     display: none;
   }
 
-  .nav-auth {
+
+  /* Mobile Navbar */
+  .mobile-nav {
+    width: 100%;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    background: #fff;
+  }
+
+
+
+
+  .hamburger-btn {
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .hamburger-btn span {
+    display: block;
+
+    width: 30px;
+    height: 2.5px;
+
+    background: #777;
+    border-radius: 5px;
+  }
+.hamburger-btn:hover span {
+  background: #e91e83;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.05);
+}
+
+
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    text-decoration: none;
+
     margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-brand-logo {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+      135deg,
+      #c83fd0,
+      #d73586
+    );
+
+    color: #fff;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .mobile-brand-name {
+    color: #172033;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    white-space: nowrap;
+  }
+
+  .mobile-brand-name span {
+    color: #e91e83;
+  }
+
+
+
+
+  .mobile-auth {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+  }
+
+  .mobile-signin {
+    color: #46536a;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+  }
+
+  .mobile-signup {
+    height: 32px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e91e83;
+    color: #fff;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+  }
+
+
+
+
+  .mobile-menu {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px 18px 15px;
+
+    background: #fff;
+
+    border-bottom: 1px solid #edf0f5;
+
+    box-sizing: border-box;
+  }
+
+  .mobile-menu a {
+    padding: 12px 0;
+
+    color: #526078;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #f1f3f6;
+  }
+
+  .mobile-menu a:hover {
+    color: #e91e83;
   }
 
 }
