@@ -1,0 +1,183 @@
+
+.navbar {
+  width: 100%;
+  height: 62px;
+  background: #fff;
+  border-bottom: 1px solid #edf0f5;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1250px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #c83fd0, #d73586);
+  color: #fff;
+
+  border-radius: 6px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.brand-name {
+  color: #172033;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.brand-name span {
+  color: #e91e83;
+}
+
+
+
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+
+  gap: 26px;
+
+  list-style: none;
+  margin: 0 35px;
+  padding: 0;
+
+  flex-shrink: 0;
+}
+
+.nav-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: #526078;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #e91e83;
+}
+
+
+
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  flex-shrink: 0;
+}
+
+.sign-in {
+  color: #46536a;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.sign-in:hover {
+  color: #e91e83;
+}
+
+.sign-up {
+  height: 30px;
+  min-width: 69px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e91e83;
+  color: #fff;
+
+  border-radius: 16px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition: all 0.2s ease;
+}
+
+.sign-up:hover {
+  background: #d81773;
+  transform: translateY(-1px);
+}
+
+
+/* mobile */
+
+@media (max-width: 700px) {
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-auth {
+    margin-left: auto;
+  }
+
+}
+
