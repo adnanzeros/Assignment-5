@@ -1,10 +1,38 @@
-import React, { useState } from 'react';
-import technologies from '../data/technologies.json';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import technologiesUrl from '../data/technologies.json?url';
 import './technology.css';
 
 const TechnologyCard = () => {
+  // Technologies loaded from JSON
+  const [technologies, setTechnologies] = useState([]);
+
+  // Loading state
+  const [loading, setLoading] = useState(true);
+
   // Selected technologies
   const [stack, setStack] = useState([]);
+
+  // Load technologies from JSON
+  useEffect(() => {
+    fetch(technologiesUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch technologies');
+        }
+
+        return response.json();
+      })
+      .then(data => {
+        setTechnologies(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading technologies:', error);
+        setLoading(false);
+        toast.error('Failed to load technologies!');
+      });
+  }, []);
 
   // Add technology to stack
   const handleAddToStack = technology => {
@@ -12,21 +40,31 @@ const TechnologyCard = () => {
     const alreadyAdded = stack.some(item => item.id === technology.id);
 
     if (alreadyAdded) {
-      alert(`${technology.name} is already in your stack!`);
+      toast.warning(`${technology.name} is already in your stack!`);
       return;
     }
 
     setStack([...stack, technology]);
+
+    toast.success(`${technology.name} added to your stack!`);
   };
 
   // Remove one technology
   const handleRemove = id => {
+    const technology = stack.find(item => item.id === id);
+
     setStack(stack.filter(item => item.id !== id));
+
+    if (technology) {
+      toast.info(`${technology.name} removed from your stack!`);
+    }
   };
 
   // Remove all technologies
   const handleRemoveAll = () => {
     setStack([]);
+
+    toast.info('All technologies removed from your stack!');
   };
 
   // Check whether technology is already added
@@ -34,10 +72,26 @@ const TechnologyCard = () => {
     return stack.some(item => item.id === id);
   };
 
+  // Show loading message while JSON is loading
+  if (loading) {
+    return (
+      <section className="technology-section">
+        <div className="technology-wrapper">
+          <div className="technology-main">
+            <div className="technology-header">
+              <h1>Loading Technologies...</h1>
+
+              <p>Please wait while the technologies are loading.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="technology-section">
       <div className="technology-wrapper">
-
         <div className="technology-main">
           {/* Section Header */}
           <div className="technology-header">
@@ -88,6 +142,7 @@ const TechnologyCard = () => {
                     {/* Rating */}
                     <span className="rating">
                       <span className="rating-star">★</span>
+
                       {technology.rating}
                     </span>
                   </div>
@@ -106,7 +161,7 @@ const TechnologyCard = () => {
           </div>
         </div>
 
-
+        {/* Your Stack */}
         <aside className="your-stack">
           {/* Stack Header */}
           <div className="stack-header">
@@ -123,7 +178,7 @@ const TechnologyCard = () => {
             </div>
           </div>
 
-
+          {/* Empty Stack */}
           {stack.length === 0 && (
             <div className="stack-empty">
               <div className="empty-icon">🧰</div>
@@ -134,7 +189,7 @@ const TechnologyCard = () => {
             </div>
           )}
 
-
+          {/* Stack Content */}
           {stack.length > 0 && (
             <div className="stack-content">
               {stack.map(technology => (
