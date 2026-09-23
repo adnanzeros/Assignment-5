@@ -1,56 +1,169 @@
 # 🚀 DevStack
 
-DevStack is a simple and user-friendly technology stack management website built with React. Users can explore different technologies, select their favorite technologies, and build their own development stack.
+**DevStack** is a React-based technology stack management website where users can explore technologies, view technology details, and build their own development stack by selecting and removing technologies.
+
+## 🔗 Project Links
+
+- **GitHub Repository:** https://github.com/adnanzeros/Assignment-5
+- **Live Demo:** _Add your deployed website URL here_
+
+## 📸 Project Screenshot
+
+_Add a screenshot of the project here._
+
+```md
+![DevStack Screenshot](./public/screenshot.png)
+```
+
+> Replace `./public/screenshot.png` with the actual screenshot path if your screenshot has a different name or location.
 
 ## ✨ Features
 
-* 🔍 **Explore Technologies** — Browse different technologies and their details.
-* ➕ **Build Your Stack** — Add technologies to your personal development stack.
-* 🗑️ **Manage Your Stack** — Easily remove technologies from your selected stack.
+- 🔍 **Explore Technologies** — Browse available technologies and their information.
+- ➕ **Build Your Stack** — Add technologies to your personal development stack.
+- 🗑️ **Manage Your Stack** — Remove technologies from your selected stack.
+- ⚡ **Dynamic Data Loading** — Technology data is loaded from a JSON data file.
+- 🔔 **Toast Notifications** — Provides user feedback through React Toastify.
+- 📱 **Responsive Interface** — Designed to work across different screen sizes.
 
 ## 🛠️ Technologies Used
 
-* React.js
-* JavaScript
-* HTML5
-* CSS3
-* JSON
-* React Hooks (`useState`, `useEffect`)
-*vite
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- JSON
+- Vite
+- React Hooks
+  - `useState`
+  - `useEffect`
+- React Toastify
+
+## 📦 Dependencies
+
+Main project dependencies include:
+
+- `react`
+- `react-dom`
+- `react-toastify`
+
+Development/build tools include:
+
+- `vite`
+- `@vitejs/plugin-react`
+- `oxlint`
+
+See `package.json` for the complete dependency list.
+
+## 📂 Project Structure
+
+```
+Assignment-5/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── nav/
+│   │   ├── hero/
+│   │   ├── technologycard/
+│   │   ├── yourstack/
+│   │   └── footer/
+│   ├── data/
+│   │   └── technologies.json
+│   ├── App.jsx
+│   └── App.css
+├── B14-A05-DevStack/
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
+```
+
+## 💻 Run the Project Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/adnanzeros/Assignment-5.git
+```
+
+### 2. Go to the project directory
+
+```bash
+cd Assignment-5
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in your terminal.
+
+### 5. Create a production build
+
+```bash
+npm run build
+```
+
+### 6. Preview the production build
+
+```bash
+npm run preview
+```
+
+## 🧩 How It Works
+
+1. Technology information is stored in a JSON data file.
+2. React loads the technology data when the application starts.
+3. Users can select technologies to add them to their stack.
+4. The selected stack is displayed dynamically.
+5. Users can remove technologies from their stack.
+6. Toast notifications provide feedback for relevant actions.
 
 ---
 
 # 📚 React Questions & Answers
 
- 1. What is JSX, and why is it used in React?
+### 1. What is JSX, and why is it used in React?
 
-JSX is a syntax that lets us write HTML-like code inside JavaScript. React uses JSX to make UI code easier to write and understand
-2. What is the difference between props and state?
+JSX is a syntax extension that allows us to write HTML-like markup inside JavaScript. It makes React UI code easier to read and maintain.
 
-Props are data passed from a parent component to a child component.
-State is data managed inside a component that can change over time.
+### 2. What is the difference between props and state?
 
- 3. What does the `useState` hook do, and where did you use it in this project?
+**Props** are data passed from a parent component to a child component.
 
-`useState` lets us create and manage changing data in a React component.
+**State** is data managed inside a component that can change over time and trigger a re-render.
 
-I used `useState` to manage the technology list, loading state, and selected technologies.
+### 3. What does the `useState` hook do, and where did you use it in this project?
 
-4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
+`useState` allows a React component to create and manage state.
 
-`useEffect` runs code after a component renders. I used it to fetch and load the technology data from the JSON file when the component loads.
+In this project, it is used to manage application data such as the technology list, loading state, and selected technologies.
 
- 5. Why does every item in a `.map()` list need a unique `key` prop?
+### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
 
-React uses the `key` to identify each item in a list. It helps React efficiently update the correct item when the list changes.
+`useEffect` allows us to run side effects after a component renders.
 
- 6. What is conditional rendering? Show one place you used it.
+In this project, it is used to load the technology data when the application starts.
 
-Conditional rendering means showing different UI depending on a condition.
+### 5. Why does every item in a `.map()` list need a unique `key` prop?
 
-For example, I used it to show an empty stack message when no technology is selected:
+React uses the `key` to identify individual items in a list. A unique key helps React efficiently determine which items have changed, been added, or removed.
 
-jsx
+### 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering means displaying different UI based on a condition.
+
+For example, the selected stack can show an empty-state message when no technology has been selected:
+
+```jsx
 {selectedTechnologies.length === 0 ? (
   <p>Your stack is empty.</p>
 ) : (
@@ -58,32 +171,35 @@ jsx
     <div key={technology.id}>{technology.name}</div>
   ))
 )}
+```
 
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
- 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+A parent passes data to a child using **props**.
 
-A parent sends data to a child using **props**.
-
-A child can send something back by calling a function that the parent passes to it as a prop.
+A child can communicate back to the parent by calling a function that the parent passes as a prop.
 
 For example:
 
-jsx
+```jsx
 <Child onSelect={handleSelect} />
+```
 
+The child can call:
 
-The child can then call:
-
-jsx
+```jsx
 onSelect(data);
+```
 
+This allows the child component to send data back to the parent component.
 
-This allows the child to send data back to the parent.
+## 👨‍💻 Author
+
+**Adnan Sami**
+
+- GitHub: https://github.com/adnanzeros
+- LinkedIn: https://www.linkedin.com/in/adnanzeros/
 
 ---
 
-## 👨‍💻 Project
-
-**Project Name:** DevStack
-**Built With:** React.js
-**Purpose:** Technology stack management and exploration
+⭐ If you find this project useful, feel free to explore the repository.
