@@ -5,17 +5,7 @@
 ## 🔗 Project Links
 
 - **GitHub Repository:** https://github.com/adnanzeros/Assignment-5
-- **Live Demo:** _Add your deployed website URL here_
-
-## 📸 Project Screenshot
-
-_Add a screenshot of the project here._
-
-```md
-![DevStack Screenshot](./public/screenshot.png)
-```
-
-> Replace `./public/screenshot.png` with the actual screenshot path if your screenshot has a different name or location.
+- **Live Demo:** https://sparkling-chaja-0c0966.netlify.app/
 
 ## ✨ Features
 
